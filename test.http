@@ -1,0 +1,79 @@
+@hostName=http://localhost
+@port=8000
+@host ={{hostName}}:{{port}}
+###
+# crear diagnóstico
+# @prompt descripcion Descripción  del diagnóstico
+# @name diagnostico
+POST {{host}}/api/diagnostico/create HTTP/1.1
+Content-type: application/json
+
+{"descripcion": "{{descripcion}}"}
+
+### recuperamos
+# @name diagnostico
+GET {{host}}/api/diagnostico/find/2 HTTP/1.1
+
+###
+# Crear programa
+# @prompt nombrePrograma nombre del programa
+# @prompt descripcionPrograma descripción
+# @name programa
+POST {{host}}/api/programa/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "{{nombrePrograma}}",
+    "descripcion": "{{descripcionPrograma}}"
+}
+
+###
+# @name programa
+GET {{host}}/api/programa/find/2 HTTP/1.1
+
+###
+# crear usuario
+# @prompt urut rut del usuario
+# @prompt unombres Nombres del usuario
+# @prompt uapellidos Apellidos para el usuario
+# @prompt ufechaNacimiento Fecha de nacimiento
+# @prompt udireccion Dirección del usuario
+# @prompt utelefono Teléfono
+# @prompt umail Mail de usuario
+# @name usuario
+POST {{host}}/api/usuario/create HTTP/1.1
+Content-Type: application/json
+
+{"rut": "{{urut}}",
+"nombres": "{{unombres}}",
+"apellidos": "{{uapellidos}}",
+"fechaNacimiento": "{{ufechaNacimiento}}",
+"direccion": "{{udireccion}}",
+"telefono": "{{utelefono}}",
+"mail":"{{umail}}",
+"diagnosticoId": "{{diagnostico.response.body.id}}",
+"programaId": "{{programa.response.body.id}}"
+}
+
+###
+# actualizar programa
+# @prompt idProg Id del programa a actualizar
+# @prompt nomProg Nuevo nombre para el programa
+# @prompt descProg nueva descripción para el programa
+PUT {{host}}/api/programa/update/{{idProg}} HTTP/1.1
+Content-type: application/json
+
+{
+    "nombre": "{{nomProg}}",
+    "descripcion":"{{descProg}}"
+}
+
+###
+    GET {{host}}/api/programa/list HTTP/1.1
+
+###
+# @prompt idProg Id del programa aeliminar
+DELETE {{host}}/api/programa/delete/{{idProg}} HTTP/1.1
+
+###
+GET {{host}}/api/usuario/list HTTP/1.1

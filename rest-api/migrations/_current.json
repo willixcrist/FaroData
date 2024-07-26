@@ -1,0 +1,119 @@
+{
+    "tables": {
+        "diagnòsticos": {
+            "tableName": "diagnòsticos",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "descripcion": {
+                    "field": "descripcion",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "programas": {
+            "tableName": "programas",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "nombre": {
+                    "allowNull": false,
+                    "field": "nombre",
+                    "seqType": "Sequelize.STRING"
+                },
+                "descripcion": {
+                    "allowNull": false,
+                    "field": "descripcion",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "personal_fl": {
+            "tableName": "personal_fl",
+            "schema": {
+                "rut": {
+                    "primaryKey": true,
+                    "allowNull": false,
+                    "field": "rut",
+                    "seqType": "Sequelize.STRING"
+                },
+                "nombre": {
+                    "allowNull": false,
+                    "field": "nombre",
+                    "seqType": "Sequelize.STRING"
+                },
+                "apellido": {
+                    "allowNull": false,
+                    "field": "apellido",
+                    "seqType": "Sequelize.STRING"
+                },
+                "cargo": {
+                    "field": "cargo",
+                    "seqType": "Sequelize.STRING"
+                },
+                "perfil": {
+                    "field": "perfil",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "programa_trabajador": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "programas",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "field": "programa_trabajador",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        }
+    },
+    "path": "C:\\Users\\Williams Cuevas\\FaroData\\rest-api\\migrations\\_current.json",
+    "backupPath": "C:\\Users\\Williams Cuevas\\FaroData\\rest-api\\migrations\\_current_bak.json",
+    "exists": false,
+    "revision": 1
+}
