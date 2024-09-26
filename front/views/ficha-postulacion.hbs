@@ -1,0 +1,86 @@
+<div class="container mt-5">
+        <h1>Ficha de postulación</h1>
+        <form>
+            <!-- Nombre -->
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" aria-required="true" required>
+            </div>
+
+            <!-- RUT -->
+            <div class="form-group">
+                <label for="rut">RUT</label>
+                <input type="text" class="form-control" id="rut" aria-required="true" required placeholder="Escriba su RUT (Formato: 12345678-9)" pattern="^\d{1,3}\.\d{3}\.\d{3}-[0-9Kk]{1}$" maxlength="13">
+            </div>
+
+            <!-- Fecha de Nacimiento -->
+            <div class="form-group">
+                <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" id="fechaNacimiento" aria-required="true" required>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" class="form-control" id="telefono" aria-required="true" required>
+            </div>
+
+            <!-- E-mail -->
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" class="form-control" id="email" aria-required="true" required>
+            </div>
+
+            <!-- Dirección -->
+            <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <textarea class="form-control" id="direccion" rows="3" aria-required="true" required></textarea>
+            </div>
+
+            <!-- Región -->
+            <div class="form-group">
+                <label for="region">Región</label>
+                <select class="form-control" id="region" aria-required="true" required>
+                    <!-- Opciones de regiones aquí -->
+                    <option value="1">Región de Arica y Parinacota</option>
+                    <!-- Agrega todas las regiones de Chile -->
+                </select>
+            </div>
+
+            <!-- Comuna -->
+            <div class="form-group">
+                <label for="comuna">Comuna</label>
+                <select class="form-control" id="comuna" aria-required="true" required>
+                    <!-- Opciones de comunas aquí, actualizadas dinámicamente -->
+                </select>
+            </div>
+
+            <!-- Botones -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Ingresar Usuario</button>
+                <button type="reset" class="btn btn-secondary">Limpiar Formulario</button>
+                <button type="button" class="btn btn-danger" onclick="cerrarFormulario()">Cerrar</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Incluye Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function cerrarFormulario() {
+            // Lógica para cerrar o ocultar el formulario
+            // Ejemplo: ocultar el contenedor del formulario
+            document.querySelector('.container').style.display = 'none';
+        }
+
+        // Lógica para actualizar el campo de Comuna según la Región seleccionada
+        document.getElementById('region').addEventListener('change', function() {
+            var region = this.value;
+            var comunaSelect = document.getElementById('comuna');
+            // Actualiza las opciones de comunas basadas en la región seleccionada
+            // Aquí deberías incluir la lógica para cargar las comunas dinámicamente
+        });
+    </script>

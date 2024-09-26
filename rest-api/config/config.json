@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "iplacex",
-    "database": "FaroData",
+    "password": "FaroData",
+    "database": "FLuz",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

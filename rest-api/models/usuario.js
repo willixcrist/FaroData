@@ -41,12 +41,8 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             type: DataTypes.STRING(12)
         },
-        nombres: {
-            type: DataTypes.STRING(70),
-            allowNull: false,
-        },
-        apellidos: {
-            type: DataTypes.STRING(41),
+        nombre: {
+            type: DataTypes.STRING(100),
             allowNull: false,
         },
         fechaNacimiento: {
