@@ -1,0 +1,33 @@
+@hostName=http://localhost
+@port=8000
+@host ={{hostName}}:{{port}}
+###
+POST {{host}}/api/diagnostico/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "descripcion":"Glaucoma"
+}
+###
+POST {{host}}/api/trabajador/create HTTP/1.1
+Content-Type: application/json
+
+{
+"rut": "11111111-9",
+    "nombre": "Benito",
+    "apellido": "camelo",
+    "cargo": "Buen prospecto para jefe",
+    "perfil": "2",
+    "programa_trabajador": "3"
+}
+###
+# @name trabajador
+GET {{host}}/api/trabajador/find/11111111-9 HTTP/1.1
+###
+# @name programa
+GET {{host}}/api/programa/find/1 HTTP/1.1
+###
+PUT {{host}}/api/trabajador/assign HTTP/1.1
+Content-Type: application/json
+
+{{trabajador.response.body.*}}
